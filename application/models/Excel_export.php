@@ -6,7 +6,7 @@ class Excel_export extends CI_Model{
     function get_all_data_count(){
 
         $this->db->order_by('user_id',"DESC");
-        $this->db->limit(500);
+        $this->db->limit(10000);
         $query= $this->db->get('user_details');
         return $query->num_rows();
     }
@@ -59,7 +59,7 @@ class Excel_export extends CI_Model{
             $this->db->or_like("first_name",$search);
             $this->db->or_like("last_name",$search);
             $this->db->or_like("gender",$search);
-            $this->db->limit(500);
+            $this->db->limit(10000);
             $this->db->order_by($order,$dir);
             $query= $this->db->get('user_details');
             return $query->num_rows();
